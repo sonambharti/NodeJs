@@ -4,4 +4,4 @@ Command to install node modules: `npm i`
 Command to start a node project: `npm start`
 <br/>
 
-Command to execute a JavaScript code file: `node file_name.js`
+Command to execute a JavaScript code file: `node <file_name.js>`
