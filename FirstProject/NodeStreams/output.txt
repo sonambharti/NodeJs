@@ -1,0 +1,18 @@
+Hello, I am Sonam Bharti, a passionate and results-driven technologist specialized in Computer Science and Engineering. I hold a Master's degree in Technology (CSE) from the prestigious Indian Institute of Technology, Jammu, where I achieved an outstanding 8.25 CGPA. My academic journey also includes a Bachelor's degree in Technology (CSE) from Nalanda College of Engineering, Chandi, where I graduated with an impressive 8.28 CGPA.
+
+My scholastic achievements reflect my dedication to excellence, with recognition as one of the top 4 percent of candidates who successfully cracked GATE 2021 in Computer Science. During my B.Tech, I secured a position in the top 3 of the third year, earning the "Medhavi Chhatra Protshan Prushkar" in the CSE department. Additionally, I demonstrated my skills on a national level by achieving under 25th rank in the HCL First Career Grand Quest 2021.
+
+In my professional journey, I currently serve as a Full Stack Developer at Saarthi.ai in Bengaluru, Karnataka, where I contribute to both the BOT and NLU teams, focusing on functional conversational multilingual AI BOTs. My responsibilities include development, enhancement, and resolving issues from BOT and NLU-NER codes for voice and WhatsApp applications. I have been working on fine-tuning of the NLU-NER model of the BOT. I've also been actively researching and implementing various models, including OpenAI, Langchain and HuggingFace, to develop a conversational generative AI BOT. 
+
+One of my notable achievements at Saarthi.ai includes developing a generative AI application using Gradio and Prompt Engineering. I've also been contributing and helping the other teams to deliver a successful project, showcasing my proficiency in Python, React JS, Node JS, MongoDB, Redis, NGINX, Docker, Git, GitHub, AWS, and LLM RAG Models. 
+
+In academia, my MTech thesis research involved the development of a Privacy Preserving SSI Framework for Biometrics Over Blockchain using Hyperledger Indy. This project showcased my ability to propose and implement complex architectures, integrating Pseudo-Biometrics to create a unique identity system.
+
+Furthermore, my project portfolio includes a course project on Photo-Realistic Single Image Super Resolution using GAN, where I developed an SRGAN architecture to recover finer textures in degraded images. Another project focused on improving Deep Learning Models using Data Augmentation and Transfer Learning, highlighting my expertise in machine learning.
+
+In my B.Tech final year project, "Vicinus - An Ecommerce Website," developed at Nalanda College of Engineering, Chandi, I demonstrated leadership as both a frontend and backend developer. This project, aimed at local markets, allowed users to buy and sell products seamlessly.
+
+
+Beyond my technical prowess, I bring a well-rounded personality, with a great Troubleshooting, Documentation, and Leadership quality. Fluent in both Hindi and English, I am enthusiastic about contributing my skills and experiences to a dynamic and innovative work environment like yours.
+
+I look forward to the opportunity to discuss how my academic and professional journey aligns with the goals of your esteemed organization.
