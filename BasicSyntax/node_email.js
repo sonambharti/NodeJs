@@ -1,11 +1,14 @@
 // Code to send a mail 
+require('dotenv').config();
 var nodemailer = require('nodemailer');
 
+password = process.env.NODEMAILER_PASS;
+console.log('password = ', password);
 var transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
         user: '2021pcs2040@iitjammu.ac.in',
-        pass: 'DreamMtechIITJammu@2021'
+        pass: password
     }
 });
 
