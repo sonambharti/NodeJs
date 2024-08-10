@@ -1,6 +1,6 @@
 import React from 'react';
-import UserList from './src/components/UserLists'; 
-import AddUser from './src/components/AddUser';
+import UserList from './components/UserLists'; 
+import AddUser from './components/AddUser';
 
 function App() {
   return (
