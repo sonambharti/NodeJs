@@ -1,0 +1,5 @@
+/BasicSyntax/node_modules
+/FirstProject/node_modules
+/FirstProject/backend/node_modules
+/FirstProject/frontend/node_modules
+.env
