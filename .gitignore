@@ -1,2 +1,4 @@
 /BasicSyntax/node_modules
 .env
+/FirstProject/backend/node_modules
+/FirstProject/frontend/node_modules

@@ -10,6 +10,12 @@ const PORT = process.env.PORT || 5000;
 app.use(bodyParser.json());
 app.use(cors());
 
+
+const connectDB = require("./db/mongoose");
+
+connectDB();
+
+
 // MongoDB Connection
 mongoose.connect('mongodb://localhost:27017/mern-basic', {
   useNewUrlParser: true,
@@ -18,6 +24,8 @@ mongoose.connect('mongodb://localhost:27017/mern-basic', {
 
 mongoose.connection.once('open', () => {
   console.log('Connected to MongoDB');
+}).on('error', (error) => {
+  console.log('MongoDB connection error: ', error);
 });
 
 // Routes
