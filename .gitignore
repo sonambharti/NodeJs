@@ -1,6 +1,7 @@
 /BasicSyntax/node_modules
 .env
 .git
+.gitignore
 
 /FirstProject/node_modules
 /FirstProject/backend/node_modules
