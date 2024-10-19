@@ -1,3 +1,5 @@
+// Promise solve the callback hell '>' problem.
+
 const fs = require('fs')
 const superagent = require('superagent')
 
@@ -48,6 +50,7 @@ const getDogPic = async() => {
     return '2: Ready 🐶';
 }
 
+// annonymous async function to call a function to fulfill the promise
 // (async () => {
 //     try {
 //         console.log('1: Will get dog pics!');
@@ -60,23 +63,36 @@ const getDogPic = async() => {
 // })();
 
 /** */
+// sequence to execute Promise using a synchronous function
+// const fun = function() {
+//     console.log('1. Will get DOG pics')
+//     getDogPic().then(x => {
+//         console.log(x);
+//         console.log('3: Done getting Dog Pics!');
+//     }).catch(err => {
+//         console.log('Error 💥');
+//     });
+// }
+// fun();
+
+
+// sequence to execute Promise 
 console.log('1. Will get DOG pics')
-getDogPic().then(x => {
-    console.log(x);
-    console.log('3: Done getting Dog Pics!');
-}).catch(err => {
-    console.log('Error 💥');
+    getDogPic().then(x => {
+        console.log(x);
+        console.log('3: Done getting Dog Pics!');
+    }).catch(err => {
+        console.log('Error 💥');
 });
 
-
-
 /** 
-fs.readFilePro(`${__dirname}/dog.txt`)
+// Promise chaining 
+readFilePro(`${__dirname}/dog.txt`)
     .then(data => { 
     console.log(`Breed: ${data}`);
     return superagent.get(`https://dog.ceo/api/breed/${data}/images/random`);
     })
-    .then(response => {
+    .then(res => {
         console.log(res.body.message);
         return writeFilePro('dog-img.txt', res.body.message)
     })
