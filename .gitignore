@@ -1,6 +1,11 @@
 /BasicSyntax/node_modules
 .env
+.git
 
 /FirstProject/node_modules
 /FirstProject/backend/node_modules
 /FirstProject/frontend/node_modules
+
+/Node-Tutorials/1-Node-Farm/node_modules
+/Node-Tutorials/2-Node-Works/node_modules
+/Node-Tutorials/3-asynchronous-Js/node_modules
