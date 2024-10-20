@@ -3,13 +3,25 @@ const express = require('express');
 const morgan = require('morgan');
 app = express();
 app.use(express.json()); // middleware to make use of json features in the app using express
-app.use(morgan('dev'));
-
+app.use(morgan('dev')); // morgan is a middleware, used to log in different available environments
+/**
+ * morgan('dev') => GET /api/v1/tours/1 200 9.673 ms - 1068 => {method route statusCode timeTOExecute Process_id}
+ * morgan('short') => ::ffff:127.0.0.1 - GET /api/v1/tours/1 HTTP/1.1 200 1068 - 10.391 ms
+ * morgan('combined') => ::ffff:127.0.0.1 - - [20/Oct/2024:16:43:22 +0000] "GET /api/v1/tours/1 HTTP/1.1" 200 1068 "-" "PostmanRuntime/7.41.0"
+ * morgan('tiny') => GET /api/v1/tours/1 200 1068 - 10.049 ms
+ *  morgan('common') => ::ffff:127.0.0.1 - - [20/Oct/2024:16:46:38 +0000] "GET /api/v1/tours/1 HTTP/1.1" 200 1068
+ */
 const tours = JSON.parse(fs.readFileSync(`${__dirname}/dev-data/data/tours-simple.json`));
 // console.log(tours);
 
+// app.use((req, res, next) => {
+//     console.log("In Middleware ⚠️");
+//     next();
+// });
+
 app.use((req, res, next) => {
     console.log("In Middleware ⚠️");
+    req.requestedAt = new Date().toISOString();
     next();
 });
 
@@ -28,7 +40,8 @@ const getAllTour =  (req, res) => {
 
 // Getting a tour entry via it's id
 const getTour = (req, res) => {
-    console.log(req.params);
+    // console.log(req.params);
+    console.log(req.requestedAt);
     const id = req.params.id*1;
     
     // if (id > tours.length - 1){
