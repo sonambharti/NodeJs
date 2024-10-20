@@ -5,7 +5,7 @@ app.use(express.json()); // middleware to make use of json features in the app u
 
 
 const tours = JSON.parse(fs.readFileSync(`${__dirname}/dev-data/data/tours-simple.json`));
-console.log(tours);
+// console.log(tours);
 
 
 // Getting all the entries present in the tour package
@@ -68,7 +68,7 @@ const updateTour = (req, res) => {
         status: 'success',
         message: 'Tour updated',
         data: {
-            tour: tour,
+            tour: "Yet to Update",
         },
     });
 }   
