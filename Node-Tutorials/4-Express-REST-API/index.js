@@ -1,12 +1,17 @@
 const fs = require('fs');
 const express = require('express');
+const morgan = require('morgan');
 app = express();
 app.use(express.json()); // middleware to make use of json features in the app using express
-
+app.use(morgan('dev'));
 
 const tours = JSON.parse(fs.readFileSync(`${__dirname}/dev-data/data/tours-simple.json`));
-console.log(tours);
+// console.log(tours);
 
+app.use((req, res, next) => {
+    console.log("In Middleware ⚠️");
+    next();
+});
 
 // Getting all the entries present in the tour package
 const getAllTour =  (req, res) => {
@@ -18,6 +23,7 @@ const getAllTour =  (req, res) => {
         },
     });
 }
+
 
 
 // Getting a tour entry via it's id
@@ -68,7 +74,7 @@ const updateTour = (req, res) => {
         status: 'success',
         message: 'Tour updated',
         data: {
-            tour: tour,
+            tour: 'Updated',
         },
     });
 }   
@@ -123,6 +129,7 @@ const addTour = (req, res) => {
 };
 
 
+
 // refactoring code to maintain the code
 // app.post('/api/v1/tours', addTour);
 // app.get('/api/v1/tours', getAllTour)
@@ -130,6 +137,13 @@ const addTour = (req, res) => {
 
 // setting priorities for same route
 app.route('/api/v1/tours').get(getAllTour).post(addTour);
+
+// This will only executes whencode in line 147 will be executed...
+app.use((req, res, next) => {
+    console.log("In Middleware 2 ⚠️⚠️");
+    next();
+});
+
 app.route('/api/v1/tours/:id').get(getTour).patch(updateTour).delete(deleteTour)
 
 port = 8000
