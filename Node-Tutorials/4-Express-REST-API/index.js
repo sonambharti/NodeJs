@@ -53,9 +53,7 @@ app.get('/api/v1/tours/:id', (req, res) => {
 
 // Adding new entry in the file 
 app.post('/api/v1/tours', (req, res) => {
-    const newId = {
-        id: tours[tours.length - 1].id + 1,
-    }
+    const newId = tours[tours.length - 1].id + 1
     const newTour = Object.assign({id: newId}, req.body); //assigning and concatenating id object to the body object in the request
     tours.push(newTour);
 
