@@ -77,6 +77,51 @@ app.post('/api/v1/tours', (req, res) => {
 
 });
 
+// Update Tour
+app.patch('/api/v1/tours/:id', (req, res) => {
+    console.log(req.params);
+    const id = req.params.id*1;
+    const tour = tours.find((el) => el.id === id);
+
+    // if (! tours.find((el) => el.id === id)){
+    if (! tour){
+        return res.status(400).json({
+            status: 'fail',
+            message: 'Invalid id',
+        });
+    }
+
+    res.status(200).json({
+        status: 'success',
+        message: 'Tour updated',
+        data: {
+            tour: tour,
+        },
+    });
+})  
+
+
+// Delete Tour
+app.delete('/api/v1/tours/:id', (req, res) => {
+    console.log(req.params);
+    const id = req.params.id*1;
+    const tour = tours.find((el) => el.id === id);
+
+    // if (! tours.find((el) => el.id === id)){
+    if (! tour){
+        return res.status(400).json({
+            status: 'fail',
+            message: 'Invalid id',
+        });
+    }
+    
+
+    res.status(200).json({
+        status: 'success',
+        message: 'Tour deleted',
+        data: null,
+    });
+})
 
 port = 8000
 app.listen(port, () => {
