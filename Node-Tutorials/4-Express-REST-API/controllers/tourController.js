@@ -3,6 +3,30 @@ const fs = require('fs');
 const tours = JSON.parse(fs.readFileSync(`${__dirname}/../dev-data/data/tours-simple.json`));
 
 
+exports.checkId = (req, res, next, val) => {
+    const id = req.params.id*1;
+    if (id > tours.length - 1){
+        return res.status(400).json({
+            status: 'fail',
+            message: 'Invalid id',
+        });
+    }
+    next();
+};
+
+
+// user-defined middleware to check if particular details are missing in request body or not...
+exports.checkBody = (req, res, next) => {
+    if (!req.body.name || !req.body.price) {
+        return res.status(404).json({
+            status: 'fail',
+            message: 'Missing name or price in request body',
+        });
+    }
+    next();
+}
+
+
 // Getting all the entries present in the tour package
 exports.getAllTour =  (req, res) => {
     res.status(200).json({
@@ -21,13 +45,6 @@ exports.getTour = (req, res) => {
     // console.log(req.params);
     console.log(req.requestedAt);
     const id = req.params.id*1;
-    
-    // if (id > tours.length - 1){
-    //     return res.status(400).json({
-    //         status: 'fail',
-    //         message: 'Invalid id',
-    //     });
-    // }
     
     const tour = tours.find((el) => el.id === id);
 
@@ -100,7 +117,7 @@ exports.addTour = (req, res) => {
     tours.push(newTour);
 
     fs.writeFile(
-        `${__dirname}/dev-data/data/tours-simple.json`, 
+        `${__dirname}/../dev-data/data/tours-simple.json`, 
         JSON.stringify(tours),
         (err) => {
             if (err) {
