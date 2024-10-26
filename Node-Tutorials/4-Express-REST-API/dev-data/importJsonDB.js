@@ -1,8 +1,8 @@
-require('dotenv').config({path: './env'});
+require('dotenv').config({path: './../.env'});
 const mongoose = require('mongoose');
 const fs = require('fs')
 const Tour = require('./../model/tour_model');
-const connectDB = require('./../db/mongoose');
+const connectDB = require('./../db/mongooseConnection');
 // const ATLAS_URI = process.env.Local_DB;
 
 connectDB();

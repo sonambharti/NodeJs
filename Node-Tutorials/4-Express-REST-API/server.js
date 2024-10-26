@@ -1,7 +1,7 @@
 // require('dotenv').config('.env');
 require('dotenv').config({path: '.env'}); // for multiple env files
 const app = require('./app')
-const connectDB = require('./db/mongoose');
+const connectDB = require('./db/mongooseConnection');
 // const TourModel = require('./model/tour_model');
 // const mongoose = require('mongoose');
 // const DB_URL = process.env.Mongo_URL.replace('<DB_username>', process.env.DB_username).replace('<DB_password>', process.env.DB_password)
