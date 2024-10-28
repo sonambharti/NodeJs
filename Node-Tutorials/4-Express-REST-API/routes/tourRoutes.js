@@ -8,6 +8,21 @@ const router = express.Router();
 //     .get(tourController.getAllTour)
 //     .post(tourController.checkBody, tourController.addTour); // calling for middleware check first using middleware chaining.
 
+
+router
+    .route('/top-5-cheaps')
+    .get(tourController.getTopTours, tourController.getAllTour);
+
+router
+    .route('/tour-stats')
+    .get(tourController.getTourStats);
+
+
+router
+    .route('/tour-monthly-plan/:year')
+    .get(tourController.getMonthlyPlan);
+   
+
 router
     .route('/')
     .get(tourController.getAllTour)
