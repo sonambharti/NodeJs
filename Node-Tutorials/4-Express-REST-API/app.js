@@ -33,4 +33,14 @@ app.use((req, res, next) => {
 app.use('/api/v1/tours', tourRouter); // creating tour Route middleware
 app.use('/api/v1/users', userRouter); // creating user Route middleware
 
+// Route to handle all the invalid routes
+app.all('*', (req, res, next) => {
+    res.status(404).json({
+        status: 'fail',
+        // message: 'Invalid route',
+        message: `Can't find ${req.originalUrl} on this server!`
+    });
+    // next();
+});
+
 module.exports = app;

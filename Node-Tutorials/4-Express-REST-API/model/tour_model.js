@@ -99,7 +99,7 @@ TourSchema.pre(/^find/, function (next) { // '^' in regeluar expression represen
 
 TourSchema.post(/^find/, function (doc,next) { // '^' in regeluar expression represents the word is prefix
     // console.log('Aill find some documents');
-    console.log(`Query took ${Date.now() - this.start} milliseconds...`);
+    console.log(`Query took ${Date.now() - this.start} milliseconds...`); 
     next();
 });
 
