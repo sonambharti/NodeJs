@@ -1,6 +1,8 @@
 const TourModel = require('./../model/tour_model');
 const mongoose = require('mongoose');
 const APIFeatures = require('./../utils/apiFeatures');
+const AppError = require('./../utils/appError');
+const catchAsync = require('./../utils/catchAsync');
 
 
 // Getting top 5 tour
@@ -13,8 +15,8 @@ exports.getTopTours = (req, res, next) => {
 
 
 // Getting all the entries present in the tour package
-exports.getAllTour = async (req, res) => {
-    try{
+exports.getAllTour = catchAsync(async (req, res, next) => {
+    // try{
         // const tours = await TourModel.find();
         // console.log("query = ", req.query)
         // const tours = await TourModel.find({ price: { '$gte': '500' } }); // mongo query to find the tour whose price >= 500
@@ -31,24 +33,25 @@ exports.getAllTour = async (req, res) => {
             },
         });
 
-    }
-    catch (err){
-        res.status(400).json({
-            status: 'fail',
-            message: `Error: ${err}`,
-        });
+    // }
+    // catch (err){
+    //     new AppError(`Error: ${err}`, 400);
+        // res.status(400).json({
+        //     status: 'fail',
+        //     message: `Error: ${err}`,
+        // });
 
-    }
+    // }
     
-}
+})
 
 // Getting a tour entry via it's id
-exports.getTour = async (req, res) => {
+exports.getTour = async (req, res, next) => {
 
     try{
-        // const tour = await TourModel.findById(req.params.id);
+        const tour = await TourModel.findById(req.params.id);
         // console.log(`tour_id: ${req.params.id}`);
-        const tour = await TourModel.find({tour_id: req.params.id*1});
+        // const tour = await TourModel.find({tour_id: req.params.id*1});
         
         res.status(200).json({
             status: 'success',
@@ -57,12 +60,12 @@ exports.getTour = async (req, res) => {
             },
         });
 
-    }
-    catch (err){
-        res.status(400).json({
-            status: 'fail',
-            message: `Error: ${err}`,
-        });
+    } catch (err){
+        return next(new AppError(`Error: ${err}`, 400));
+        // res.status(400).json({
+        //     status: 'fail',
+        //     message: `Error: ${err}`,
+        // });
 
     }
 }   

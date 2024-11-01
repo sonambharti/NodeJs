@@ -5,6 +5,8 @@ const morgan = require('morgan');
 
 const tourRouter = require('./routes/tourRoutes');
 const userRouter = require('./routes/userRoutes');
+const AppError = require('./utils/appError');
+const globalErrorHandler = require('./controllers/errorController');
 
 app = express();
 app.use(express.json()); // middleware to make use of json features in the app using express
@@ -35,12 +37,16 @@ app.use('/api/v1/users', userRouter); // creating user Route middleware
 
 // Route to handle all the invalid routes
 app.all('*', (req, res, next) => {
-    res.status(404).json({
-        status: 'fail',
-        // message: 'Invalid route',
-        message: `Can't find ${req.originalUrl} on this server!`
-    });
+    // putting error in next means sending this error to global error handler.
+    next(new AppError(`Can't find ${req.originalUrl} on this server!`, 404))
+    // res.status(404).json({
+    //     status: 'fail',
+    //     // message: 'Invalid route',
+    //     message: `Can't find ${req.originalUrl} on this server!`
+    // });
     // next();
 });
 
+// all the middlewares here will be skipped;
+app.use(globalErrorHandler);
 module.exports = app;
