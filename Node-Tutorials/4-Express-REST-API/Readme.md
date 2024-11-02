@@ -5,3 +5,7 @@ To install prettier to make coding experience easy:
 
 Package to install node debugger to debug in node:
 `npm i ndb`
+
+
+Package to install validators:
+`npm i validators`

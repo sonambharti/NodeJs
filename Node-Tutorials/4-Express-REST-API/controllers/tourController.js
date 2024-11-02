@@ -61,6 +61,7 @@ exports.getTour = async (req, res, next) => {
         });
 
     } catch (err){
+        // console.log("Error: ", err)
         return next(new AppError(`Error: ${err}`, 400));
         // res.status(400).json({
         //     status: 'fail',
@@ -100,7 +101,7 @@ exports.updateTour = async (req, res) => {
 exports.deleteTour = async (req, res) => {
     try{
         const tour = await TourModel.findByIdAndDelete(req.params.id);
-        res.status(200).json({
+        res.status(203).json({
             status: 'success',
             data: null,
         });
